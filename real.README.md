@@ -5,9 +5,50 @@ _project_summary_
 <https://gitlab.com/_namespace_/_project_>  
 [![The GitLab CI pipeline status badge of the project's `main` branch](https://gitlab.com/_namespace_/_project_/badges/main/pipeline.svg?ignore_skipped=true "Click here to check out the comprehensive status of the GitLab CI pipelines")](https://gitlab.com/_namespace_/_project_/-/pipelines) [![GitHub Actions workflow status badge](https://github.com/_namespace_/_project_/actions/workflows/check-potential-problems.yml/badge.svg "GitHub Actions workflow status")](https://github.com/_namespace_/_project_/actions/workflows/check-potential-problems.yml) [![pre-commit enabled badge](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white "This project uses pre-commit to check potential problems")](https://pre-commit.com/) [![REUSE Specification compliance badge](https://api.reuse.software/badge/gitlab.com/_namespace_/_project_ "This project complies to the REUSE specification to decrease software licensing costs")](https://api.reuse.software/info/gitlab.com/_namespace_/_project_)
 
+<!--
+## Requirements
+
+The following prerequisites must be met in order for the role to properly function:
+
+TBD
+
+## Dependencies
+
+The following Ansible resources needs to be installed in order for the role to properly function:
+
+TBD
+
+You can install them by running the following command in the role directory in a text terminal:
+
+```bash
+ansible-galaxy install -r requirements.yml
+```
+
+## Role Variables
+
+You can customize the role's behaviors by setting the following role variables:
+
+### _role name_
+
+#### Data type
+
+#### Default value
+
+#### Example value
+-->
+
+## Example playbooks
+
+Refer to the files under [the playbooks directory](playbooks/) for example playbooks.
+
+Note that you need to [create a self-referencing symbolic link](playbooks/roles/#creating-the-namespace-name-pseudo-role) for the playbooks to work if you want to run the playbooks directly in this role.
+
+
+<!--
 ## References
 
 To be addressed.
+-->
 
 ## Licensing
 
