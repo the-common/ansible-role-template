@@ -5,7 +5,7 @@
 #     https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
 #
 # Copyright 2021 The Common Ansible Project Template Contributors <https://github.com/the-common/ansible-project-template/graphs/contributors>
-# SPDX-License-Identifier: CC-BY-SA-4.0
+# SPDX-License-Identifier: CC-BY-SA-4.0 OR LicenseRef-Apache-2.0-If-Not-Used-In-Template-Projects
 all:
   hosts:
     example.com:
