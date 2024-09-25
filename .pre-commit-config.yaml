@@ -73,3 +73,8 @@ repos:
           (?ix)^(
             LICENSES/.*
           )$
+
+  - repo: https://github.com/ansible/ansible-lint
+    rev: v24.7.0
+    hooks:
+      - id: ansible-lint

@@ -1,0 +1,88 @@
+# Inventory file for the production environment
+#
+# References:
+#   - How to build your inventory — Ansible Documentation
+#     https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
+#
+# Copyright 2021 The Common Ansible Project Template Contributors <https://github.com/the-common/ansible-project-template/graphs/contributors>
+# SPDX-License-Identifier: CC-BY-SA-4.0
+all:
+  hosts:
+    example.com:
+      ansible_host: 1.2.3.4
+      ansible_port: 12345
+      ansible_user: root
+      ansible_password: Passw@rd
+
+    localhost:
+      ansible_connection: local
+
+  children:
+    web_servers:
+      hosts:
+        web1.example.com:
+        web2.example.com:
+        web3.example.com:
+
+        web1.staging.example.com:
+        web2.staging.example.com:
+
+        test.example.com:
+
+    db_servers:
+      hosts:
+        db1.example.com:
+        db2.example.com:
+
+        db1.staging.example.com:
+        db2.staging.example.com:
+
+        test.example.com:
+
+    api_servers:
+      hosts:
+        api1.example.com:
+        api2.example.com:
+
+        api1.staging.example.com:
+        api2.staging.example.com:
+
+        test.example.com:
+
+    rproxy_servers:
+      hosts:
+        rproxy1.example.com:
+        rproxy2.example.com:
+
+        rproxy1.staging.example.com:
+        rproxy2.staging.example.com:
+
+    production:
+      hosts:
+        web1.example.com:
+        web2.example.com:
+        web3.example.com:
+        db1.example.com:
+        db2.example.com:
+        api1.example.com:
+        api2.example.com:
+
+      vars:
+        api_server: api.example.com
+
+    staging:
+      hosts:
+        web1.staging.example.com:
+        web2.staging.example.com:
+        db1.staging.example.com:
+        db2.staging.example.com:
+
+      vars:
+        api_server: api.staging.example.com
+
+    test:
+      hosts:
+        test.example.com:
+
+      vars:
+        api_server: test.example.com

@@ -1,0 +1,10 @@
+# Group variable file for web_servers
+#
+# References:
+# - Assigning a variable to many machines: group variables — How to build your inventory — Ansible Documentation
+#   https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#assigning-a-variable-to-many-machines-group-variables
+#
+# Copyright 2021 The Common Ansible Project Template Contributors <https://github.com/the-common/ansible-project-template/graphs/contributors>
+# SPDX-License-Identifier: CC-BY-SA-4.0
+api_server: api.example.com
+database_server: db.example.com
