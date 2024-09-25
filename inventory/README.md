@@ -2,6 +2,8 @@
 
 Info regarding the managed nodes(hosts), host groups and their configurations.
 
+Inventory information can be provided by YAML/INI-like static files and external sources(dynamic inventory), refer to the [How to build your inventory — Ansible Community Documentation](https://docs.ansible.com/ansible/latest/inventory_guide/intro_inventory.html) webpage for more detail.
+
 ## References
 
 The following external material are referenced during the writing of this documentation:
