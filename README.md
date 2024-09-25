@@ -61,6 +61,7 @@ A sensible Ansible role template for initializing a new project.
 1. Replace [.markdownlint.yml](.markdownlint.yml) with [real.markdownlint.yml](real.markdownlint.yml)
 1. Replace [README.md](README.md)(this document) with [real.README.md](real.README.md)
 1. Customize/remove Telegram notification details in [.github/workflows/check-potential-problems.yml](.github/workflows/check-potential-problems.yml)
+1. Rename [the meta/real.main.yml main metadata configuration file template](meta/real.meta.yml) to meta/main.yml and customize it according to your project.
 1. Commit all changes as a new revision(commit summary for reference: `docs: Write project README prototype`)
 1. (If you've cloned the repository back to local) push local changes to the remote repository
 

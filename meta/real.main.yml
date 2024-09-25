@@ -1,0 +1,37 @@
+# Ansible role metadata
+#
+# Reference:
+#
+# * Role directory structure — Roles — Ansible Documentation
+#   https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html#role-directory-structure
+# * Using `meta/main.yml — Dependencies — Galaxy User Guide — Ansible
+#   Galaxy Documentation
+#   https://docs.ansible.com/ansible/latest/galaxy/user_guide.html#using-meta-main-yml
+# * Role Metadata — Creating Roles — Ansible Galaxy Documentation
+#   https://old-galaxy.ansible.com/docs/contributing/creating_role.html#role-metadata
+#
+# Copyright 2024 林博仁(Buo-ren Lin) <buo.ren.lin@gmail.com>
+# SPDX-License-Identifier: CC-BY-SA-4.0+ OR LicenseRef-Apache-2.0-If-Not-Used-In-Template-Projects
+
+galaxy_info:
+  role_name: _name_
+  author: _namespace_
+  description: _description_
+  license: _license_
+
+  # Refer to the following documentation for the currently officially supported ansible-core releases:
+  # ansible-core release cycle — Releases and maintenance — Ansible Community Documentation
+  # https://docs.ansible.com/ansible/devel/reference_appendices/release_and_maintenance.html#ansible-core-release-cycle
+  min_ansible_version: '2.15'
+
+  # List tags for your role here, one per line. A tag is a keyword that describes
+  # and categorizes the role. Users find roles by searching for tags. Be sure to
+  # remove the '[]' above, if you add tags to this list.
+  #
+  # NOTE: A tag is limited to a single word comprised of alphanumeric characters.
+  #       Maximum 20 tags per role.
+  galaxy_tags: []
+
+# List your role dependencies here, one per line. Be sure to remove the '[]' above,
+# if you add dependencies to this list.
+dependencies: []
