@@ -43,7 +43,6 @@ Refer to the files under [the playbooks directory](playbooks/) for example playb
 
 Note that you need to [create a self-referencing symbolic link](playbooks/roles/#creating-the-namespace-name-pseudo-role) for the playbooks to work if you want to run the playbooks directly in this role.
 
-
 <!--
 ## References
 
