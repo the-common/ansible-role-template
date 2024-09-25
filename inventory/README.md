@@ -1,3 +1,3 @@
 # inventory
 
-Info regarding the managed nodes
+Info regarding the managed nodes.
