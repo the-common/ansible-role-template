@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Generate the project build artifacts
 #
-# Copyright 2023 林博仁(Buo-ren, Lin) <buo.ren.lin@gmail.com>
+# Copyright 2024 林博仁(Buo-ren Lin) <buo.ren.lin@gmail.com>
 # SPDX-License-Identifier: CC-BY-SA-4.0
 set \
     -o errexit \
@@ -61,7 +61,7 @@ git_describe_opts=(
     --dirty
     --tags
 )
-if ! project_version="$(
+if ! version_describe="$(
     git describe \
         "${git_describe_opts[@]}"
     )"; then
@@ -70,19 +70,21 @@ if ! project_version="$(
         1>&2
     exit 2
 fi
+project_version="${version_describe#v}"
 
 printf \
     'Info: Generating the project archive...\n'
-project_id="${CI_PROJECT_NAME}-${project_version}"
+project_id="${CI_PROJECT_NAME:-"${project_id}"}"
+release_id="${project_id}-${project_version}"
 git_archive_all_opts=(
     # Add an additional layer of folder for containing the archive
     # contents
-    --prefix="${project_id}/"
+    --prefix="${release_id}/"
 )
 if ! \
     git-archive-all \
         "${git_archive_all_opts[@]}" \
-        "${project_id}.tar.gz"; then
+        "${release_id}.tar.gz"; then
     printf \
         'Error: Unable to generate the project archive.\n' \
         1>&2
