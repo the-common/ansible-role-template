@@ -67,3 +67,10 @@ indent_style = unset
 
 [/.ansible-lint]
 indent_size = 2
+
+# Do not check for compliance for most of the configuration for Jinja2 template files, which may be in any format that the applications require
+[*.j2]
+indent_size = unset
+indent_style = unset
+end_of_line = unset
+insert_final_newline = unset
