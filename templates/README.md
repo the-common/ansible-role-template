@@ -10,5 +10,5 @@ The following material are referenced during the writing of this documentation:
   Explains the basic concepts of the Jinja2 template language.
 * [ansible.builtin.template module – Template a file out to a target host — Ansible Community Documentation](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/template_module.html)  
   Explains the usage of the `ansible.builtin.template` Ansible module.
-* [‎Gemini - Jinja2 Template Basics](https://gemini.google.com/share/5d88b0b68335)  
+* [Gemini - Jinja2 Template Basics](https://gemini.google.com/share/5d88b0b68335)  
   Provide examples Jinja2 template documents.
