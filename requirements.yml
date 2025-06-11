@@ -14,7 +14,7 @@
 #   — Galaxy User Guide — Ansible Community Documentation
 #   https://docs.ansible.com/ansible/latest/galaxy/user_guide.html#installing-roles-and-collections-from-the-same-requirements-yml-file
 #
-# Copyright 2024 林博仁(Buo-ren Lin) <buo.ren.lin@gmail.com>
+# Copyright 2025 林博仁(Buo-ren Lin) <buo.ren.lin@gmail.com>
 # SPDX-License-Identifier: CC-BY-SA-4.0 OR LicenseRef-Apache-2.0-If-Not-Used-In-Template-Projects
 ---
 roles: []
@@ -22,7 +22,7 @@ roles: []
   #- name: geerlingguy.java
   #  version: "1.9.6"
 
-collections:
-  # Dependency of the community.general.yaml callback plugin
-  - name: community.general
-    version: ">=9.0.0"
+collections: []
+  # Install a collection from Ansible Galaxy.
+  #- name: community.general
+  #  version: ">=9.0.0"
