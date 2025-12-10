@@ -13,7 +13,7 @@ services:
   dev-environment:
     container_name: project-name-dev
     hostname: project-name-dev
-    image: ubuntu:24.04
+    image: debian:13
     volumes:
       - type: bind
         source: ./
@@ -41,7 +41,7 @@ services:
   test-environment:
     container_name: project-name-test
     hostname: project-name-test
-    image: ubuntu:24.04
+    image: debian:13
     volumes:
       - type: bind
         source: ./
