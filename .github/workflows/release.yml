@@ -1,4 +1,4 @@
-# Release product and their build aritfacts
+# Release product and their build artifacts
 #
 # References:
 #
@@ -7,7 +7,7 @@
 #
 # Copyright 2024 林博仁(Buo-ren Lin) <buo.ren.lin@gmail.com>
 # SPDX-License-Identifier: CC-BY-SA-4.0 OR LicenseRef-Apache-2.0-If-Not-Used-In-Template-Projects
-name: Release product and their build aritfacts
+name: Release product and their build artifacts
 on:
   push:
     tags:
@@ -15,7 +15,7 @@ on:
 
 jobs:
   release:
-    name: Release product and their build aritfacts
+    name: Release product and their build artifacts
     runs-on: ubuntu-24.04
     permissions:
       # Allow publishing release packages to Releases
@@ -33,6 +33,10 @@ jobs:
           # WORKAROUND: Adding this option triggers actions/checkout#1467
           #fetch-tags: true
 
+          # Also recursively fetch submodules
+          # WORKAROUND: Adding this option triggers actions/checkout#1959
+          #submodules: true
+
       - name: >-
           WORKAROUND: Fetch tags that points to the revisions
           checked-out(actions/checkout#1467)
@@ -43,6 +47,14 @@ jobs:
             --force \
             --depth=100 \
             --no-recurse-submodules
+
+      - name: >-
+          WORKAROUND: Checkout submodules recursively(actions/checkout#1959)
+        run: |-
+          git submodule update \
+            --init \
+            --recursive \
+            --depth 1
 
       - name: Determine the project identifier
         run: printf "project_id=${GITHUB_REPOSITORY##*/}\\n" >> $GITHUB_ENV
@@ -63,6 +75,7 @@ jobs:
 
       - name: Generate the release archive
         run: |-
+          set -e
           sudo ./continuous-integration/generate-build-artifacts.install-system-deps.sh
           ./continuous-integration/generate-build-artifacts.sh
 

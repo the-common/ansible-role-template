@@ -13,6 +13,25 @@ if ! shopt -s nullglob; then
         1>&2
 fi
 
+required_commands=(
+    date
+    git
+    gzip
+    pip
+    python3
+    realpath
+    tar
+)
+for command in "${required_commands[@]}"; do
+    if ! command -v "${command}" >/dev/null; then
+        printf \
+            'Error: This program requires the "%s" command to be available in your command search PATHs.\n' \
+            "${command}" \
+            1>&2
+        exit 1
+    fi
+done
+
 script="${BASH_SOURCE[0]}"
 if ! script="$(
     realpath \
@@ -26,6 +45,8 @@ if ! script="$(
 fi
 
 script_dir="${script%/*}"
+project_dir="${script_dir%/*}"
+project_dirname="${project_dir##*/}"
 
 if ! test -e "${script_dir}/venv"; then
     printf \
@@ -49,6 +70,13 @@ if ! source "${script_dir}/venv/bin/activate"; then
     exit 2
 fi
 
+if ! pip --version &>/dev/null; then
+    printf \
+        'Error: pip command is not functioning properly.\n' \
+        1>&2
+    exit 2
+fi
+
 printf \
     'Info: Installing git-archive-all...\n'
 if ! pip show git-archive-all &>/dev/null; then
@@ -58,6 +86,15 @@ if ! pip show git-archive-all &>/dev/null; then
             1>&2
         exit 2
     fi
+fi
+
+printf \
+    'Info: Determining the build datestamp...\n'
+if ! datestamp="$(date +%Y%m%d-%H%M%S)"; then
+    printf \
+        'Error: Unable to determine the build datestamp.\n' \
+        1>&2
+    exit 2
 fi
 
 printf \
@@ -71,16 +108,17 @@ if ! version_describe="$(
     git describe \
         "${git_describe_opts[@]}"
     )"; then
+    version_describe="unknown-${datestamp}"
     printf \
-        'Error: Unable to determine the project version.\n' \
+        'Warning: Unable to determine the project version, will use "%s" as a fallback.\n' \
+        "${version_describe}" \
         1>&2
-    exit 2
 fi
 project_version="${version_describe#v}"
 
 printf \
     'Info: Generating the project archive...\n'
-project_id="${CI_PROJECT_NAME:-"${project_id}"}"
+project_id="${CI_PROJECT_NAME:-"${PROJECT_ID:-"${project_dirname}"}"}"
 release_id="${project_id}-${project_version}"
 uncompressed_project_archive="${release_id}.tar"
 git_archive_all_opts=(
