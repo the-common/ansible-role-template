@@ -15,7 +15,7 @@ on:
 jobs:
   check-using-precommit:
     name: Check potential problems using pre-commit
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     env:
       PRE_COMMIT_HOME: ${{ github.workspace }}/.cache/pre-commit
       SHELLCHECK_DIR: ${{ github.workspace }}/.cache/shellcheck-stable
