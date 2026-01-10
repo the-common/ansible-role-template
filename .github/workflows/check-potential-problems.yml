@@ -23,6 +23,10 @@ jobs:
       - name: Check out content from the Git repository
         uses: actions/checkout@v4
 
+      - name: >-
+          Create dummy requirements file to prevent actions/setup-python error
+        run: touch requirements.txt
+
       - uses: actions/setup-python@v6
         with:
           python-version: '3.13'
